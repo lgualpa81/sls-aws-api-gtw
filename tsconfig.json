@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "target": "es2021",
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "emitDecoratorMetadata": true,
+    "noImplicitAny": false,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": ".",
+    "paths": {
+      "handler/*": ["src/handler/*"]
+    }
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": [
+    "node_modules",
+    "node_modules/**/*",
+    ".serverless/**/*",
+    ".webpack/**/*",
+    "_warmup/**/*",
+    ".vscode/**/*",
+    ".idea/**/*",
+    "dist/**/*",
+    "tests/**/*",
+    "**/**/*.test.ts"
+  ]
+}

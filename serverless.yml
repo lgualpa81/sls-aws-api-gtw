@@ -1,0 +1,91 @@
+service: aws-challenge
+
+provider:
+  name: aws
+  runtime: nodejs16.x
+  memorySize: 128
+  region: ${env:REGION, 'us-east-1'}
+  stage: ${opt:stage, 'dev'}
+  timeout: 29
+  logRetentionInDays: 1
+
+  #Enviroment variables
+  environment:
+    STAGE: ${self:provider.stage}
+    REGION: ${self:provider.region}
+    NODE_ENV: ${self:custom.secrets.NODE_ENV}
+    PGDATABASE: ${self:custom.secrets.DB_NAME}
+    PGUSER: ${self:custom.secrets.DB_USER}
+    PGPASSWORD: ${self:custom.secrets.DB_PASSWORD}
+    PGHOST: ${self:custom.secrets.DB_HOST}
+    PGPORT: ${self:custom.secrets.DB_PORT}
+
+  #IAM statements
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action:
+            - lambda:invokeFunction
+          Resource:
+            - arn:aws:lambda:${self:provider.region}:function:*
+package:
+  individually: true
+  excludeDevDependencies: true
+
+plugins:
+  - serverless-offline
+  - serverless-prune-plugin
+  - serverless-esbuild
+
+custom:
+  secrets: ${file(secrets.json)}
+  defaultPrefix: ${self:service}-${self:provider.stage}
+  alerts:
+    dashboards: true
+  prune:
+    automatic: true
+    number: 0
+  esbuild:
+    bundle: true
+    minify: false
+    exclude:
+      - pg-native
+
+functions:
+  getEmployees:
+    handler: src/handler/Employee.getAll
+    events:
+      - http:
+          path: employee
+          method: get
+  getEmployee:
+    handler: src/handler/Employee.getById
+    events:
+      - http:
+          path: employee/{id}
+          method: get
+  addEmployee:
+    handler: src/handler/Employee.addEmployee
+    events:
+      - http:
+          path: employee
+          method: post
+  updateEmployee:
+    handler: src/handler/Employee.updateEmployee
+    events:
+      - http:
+          path: employee/{id}
+          method: put
+  deleteEmployee:
+    handler: src/handler/Employee.deleteEmployee
+    events:
+      - http:
+          path: employee/{id}
+          method: delete
+  vaccineReport:
+    handler: src/handler/Report.vaccineList
+    events:
+      - http:
+          path: reports
+          method: post

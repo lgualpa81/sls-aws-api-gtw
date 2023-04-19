@@ -1,0 +1,113 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "aws-api-gtw",
+    "dateExported": "2023-04-19T02:11:56.911Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "5126b7d3-5ed7-4bd5-ae6f-733479087977",
+            "colId": "0550be1d-46de-458c-99a4-1843bbcb369b",
+            "containerId": "",
+            "name": "reports",
+            "url": "http://localhost:3000/dev/reports",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2023-04-19T01:44:34.816Z",
+            "modified": "2023-04-19T01:54:27.494Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"vaccine_status\": 1,\n  \"vaccine_type\": \"Pfizer\",\n  \"vaccine_date_start\": \"2020-01-01\",\n  \"vaccine_date_end\":\"2022-04-20\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "4b1a68d2-573b-4ca6-8c3f-cc770eed2b4b",
+            "colId": "0550be1d-46de-458c-99a4-1843bbcb369b",
+            "containerId": "",
+            "name": "employees",
+            "url": "http://localhost:3000/dev/employee",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2023-04-19T01:45:42.347Z",
+            "modified": "2023-04-19T01:45:42.347Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "db36ca05-e048-422b-bbeb-77dc9d09ce26",
+            "colId": "0550be1d-46de-458c-99a4-1843bbcb369b",
+            "containerId": "",
+            "name": "create",
+            "url": "http://localhost:3000/dev/employee",
+            "method": "POST",
+            "sortNum": 25000,
+            "created": "2023-04-19T01:47:04.874Z",
+            "modified": "2023-04-19T01:48:30.689Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"first_name\": \"Joe\",\n  \"last_name\": \"Doe\",\n  \"email\": \"joe@test.com\",\n  \"document_number\": \"0604567890\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "d448f2c7-18b5-4372-b83e-02f8721f3234",
+            "colId": "0550be1d-46de-458c-99a4-1843bbcb369b",
+            "containerId": "",
+            "name": "update",
+            "url": "http://localhost:3000/dev/employee/9f282f94-de99-4a73-a0db-ff6531cd8ab9",
+            "method": "PUT",
+            "sortNum": 27500,
+            "created": "2023-04-19T01:49:05.388Z",
+            "modified": "2023-04-19T01:52:07.681Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"first_name\": \"Joe\",\n  \"last_name\": \"Doe\",\n  \"email\": \"joe@test.com\",\n  \"document_number\": \"0604567890\",\n  \"date_birth\": \"1990-12-12\",\n  \"vaccine_status\": true,\n  \"vaccine_type\": \"Pfizer\",\n  \"vaccine_date\": \"2020-01-15\",\n  \"vaccine_dose\": 1\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "c254dabf-726c-436e-adc5-6d5323e42e97",
+            "colId": "0550be1d-46de-458c-99a4-1843bbcb369b",
+            "containerId": "",
+            "name": "delete",
+            "url": "http://localhost:3000/dev/employee/d8d9f555-57a6-49a4-84f1-7b96d3cc80e2",
+            "method": "DELETE",
+            "sortNum": 28750,
+            "created": "2023-04-19T01:52:45.198Z",
+            "modified": "2023-04-19T01:53:09.709Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"first_name\": \"Joe\",\n  \"last_name\": \"Doe\",\n  \"email\": \"joe@test.com\",\n  \"document_number\": \"0604567890\",\n  \"date_birth\": \"1990-12-12\",\n  \"vaccine_status\": true,\n  \"vaccine_type\": \"Pfizer\",\n  \"vaccine_date\": \"2020-01-15\",\n  \"vaccine_dose\": 1\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "8a6e77b3-012b-4bfd-ac1f-7ba62e61899a",
+            "colId": "0550be1d-46de-458c-99a4-1843bbcb369b",
+            "containerId": "",
+            "name": "employee",
+            "url": "http://localhost:3000/dev/employee/9f282f94-de99-4a73-a0db-ff6531cd8ab9",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2023-04-19T01:46:16.679Z",
+            "modified": "2023-04-19T02:11:28.322Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ]
+}

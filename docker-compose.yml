@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  db:
+    image: postgres:12-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB_USER: docker
+      POSTGRES_PASSWORD: docker
+      POSTGRES_DB: tutorial
+    container_name: pgsql12_test
+    #volumes:
+    #  - ./postgres:/var/lib/postgresql/data
